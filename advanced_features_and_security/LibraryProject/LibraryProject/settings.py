@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bookshelf',
     'relationship_app.apps.RelationshipAppConfig',
+    'csp',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,14 @@ LOGOUT_REDIRECT_URL = "/logout"
 # This is Advanced Features and Security
 
 AUTH_USER_MODEL = 'bookshelf.CustomUser'
+
+SECURE_BROWSER_XSS_FILTER = True
+
+X_FRAME_OPTIONS = 'DENY'
+
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Ensure all sessions and CSRF cookies are sent over HTTPS to prevent interception
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
