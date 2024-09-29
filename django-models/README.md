@@ -27,17 +27,15 @@ Install Django:
   - Open a web browser and go to http://127.0.0.1:8000/ to view the default Django welcome page.
 
 - **Explore the Project Structure:**
-
-### Familiarize yourself with the created project structure. Pay particular attention to:
+  **Familiarize yourself with the created project structure. Pay particular attention to:**
   - settings.py: Configuration for the Django project.
   - urls.py: The URL declarations for the project; a “table of contents” of your Django-powered site.
   - manage.py: A command-line utility that lets you interact with this Django project
  
 **Repo:**
-----------------------------------------------------------------------------------------------------------------------
 
- -- GitHub repository: Alx_DjangoLearnLab
- -- Directory: 0x1.Introduction_ to_ Django
+ - GitHub repository: Alx_DjangoLearnLab
+ - Directory: 0x1.Introduction_ to_ Django
    
 # 1. Implementing and Interacting with Django Models
 ------------------------------------------------------------------------------------------------------------------------------------------
