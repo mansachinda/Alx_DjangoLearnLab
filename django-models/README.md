@@ -38,7 +38,7 @@ Install Django:
  - Directory: 0x1.Introduction_ to_ Django
    
 # 1. Implementing and Interacting with Django Models
-------------------------------------------------------------------------------------------------------------------------------------------
+
 ### Objective:
 
 Demonstrate proficiency in Django by creating a Book model within a Django app, implementing it according to specified attributes, and using Django’s ORM to perform database operations.
@@ -53,26 +53,26 @@ In your Django project directory, use Django’s command-line utility to generat
 
 **Define the Book Model:**
 
-. Navigate to bookshelf/models.py.
-. Create a Book class with the following fields:
- . title: CharField with a maximum length of 200 characters.
- . author: CharField with a maximum length of 100 characters.
- . publication_year: IntegerField.
+  - Navigate to bookshelf/models.py.
+- Create a Book class with the following fields:
+    title: CharField with a maximum length of 200 characters.
+  - author: CharField with a maximum length of 100 characters.
+  - publication_year: IntegerField.
 
 - **Ensure the model is correctly set up for migrations.**
 
 **Model Migration:**
 
- . Prepare your model for database integration by running python manage.py makemigrations bookshelf to create migration files.
- . Apply migrations to update the database with python manage.py migrate.
+  - Prepare your model for database integration by running python manage.py makemigrations bookshelf to create migration files.
+  - Apply migrations to update the database with python manage.py migrate.
 
 **Interact with the Model via Django Shell:**
 
-. Open the Django shell with python manage.py shell and execute CRUD operations:
- . Create a Book instance.
- . Retrieve the book you created.
- . Update the title of the created book.
- . Delete the book instance.
+  - Open the Django shell with python manage.py shell and execute CRUD operations:
+  - Create a Book instance.
+  - Retrieve the book you created.
+  - Update the title of the created book.
+  - Delete the book instance.
 
 - **Perform Specific CRUD Operations in the Django Shell:**
 Document each operation in separate Markdown files (create.md, retrieve.md, update.md, delete.md) detailing both the Python command used and its output.
@@ -80,42 +80,43 @@ Document each operation in separate Markdown files (create.md, retrieve.md, upda
 **Detailed CRUD Operations and Documentation:**
 - ### Create:
 
- . Command: Create a Book instance with the title “1984”, author “George Orwell”, and publication year 1949.
- . Document in: create.md
- . Expected Documentation: Include the Python command and a comment with the expected output noting the successful creation.
+  - Command: Create a Book instance with the title “1984”, author “George Orwell”, and publication year 1949.
+  - Document in: create.md
+  - Expected Documentation: Include the Python command and a comment with the expected output noting the successful creation.
 
 - ### Retrieve:
 
- . Command: Retrieve and display all attributes of the book you just created.
- . Document in: retrieve.md
- . Expected Documentation: Include the Python command and a comment with the expected output showing the details of the book.
+  - Command: Retrieve and display all attributes of the book you just created.
+  - Document in: retrieve.md
+  - Expected Documentation: Include the Python command and a comment with the expected output showing the details of the book.
 
 - ### Update:
 
- . Command: Update the title of “1984” to “Nineteen Eighty-Four” and save the changes.
- . Document in: update.md
- . Expected Documentation: Include the Python command and a comment with the expected output showing the updated title.
+  - Command: Update the title of “1984” to “Nineteen Eighty-Four” and save the changes.
+  - Document in: update.md
+  - Expected Documentation: Include the Python command and a comment with the expected output showing the updated title.
 
 - ### Delete:
 
- . Command: Delete the book you created and confirm the deletion by trying to retrieve all books again.
- . Document in: delete.md
- . Expected Documentation: Include the Python command and a comment with the expected output confirming the deletion.
+  - Command: Delete the book you created and confirm the deletion by trying to retrieve all books again.
+  - Document in: delete.md
+  - Expected Documentation: Include the Python command and a comment with the expected output confirming the deletion.
 
 - **Implementation and Submission Instructions:**
 
 ### Code Implementation: Your models.py file should correctly define the Book model as specified.
-. Ensure that all field types and options are accurately implemented.
-Database Operations: Perform and document each CRUD operation in the Django shell.
+- Ensure that all field types and options are accurately implemented.
+
+Database Operations:
+Perform and document each CRUD operation in the Django shell.
 Save your commands and their outputs in a file named CRUD_operations.md.
 
 **Repo:**
 
-GitHub repository: Alx_DjangoLearnLab
-Directory: 0x1.Introduction_ to_ Django
+ - GitHub repository: Alx_DjangoLearnLab
+ - Directory: 0x1.Introduction_ to_ Django
    
 # 2. Utilizing the Django Admin Interface
---------------------------------------------------------------------------------------------------
 
 ### Objective:
 
@@ -137,5 +138,5 @@ Configure list filters and search capabilities to enhance the admin’s usabilit
 
 **Repo:**
 
-GitHub repository: Alx_DjangoLearnLab
-Directory: 0x1.Introduction_ to_ Django
+ - GitHub repository: Alx_DjangoLearnLab
+ - Directory: 0x1.Introduction_ to_ Django
