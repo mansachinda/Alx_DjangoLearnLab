@@ -12,8 +12,8 @@ Install Django and create a new Django project named LibraryProject. This initia
 - **Steps:**
 Install Django:
 
- . Ensure Python is installed on your system.
- . Install Django using pip: pip install django.
+  - Ensure Python is installed on your system.
+  - Install Django using pip: pip install django.
 
 - **Create Your Django Project:**
 
@@ -34,6 +34,7 @@ Install Django:
  . manage.py: A command-line utility that lets you interact with this Django project
  
 **Repo:**
+----------------------------------------------------------------------------------------------------------------------
 
 GitHub repository: Alx_DjangoLearnLab
 Directory: 0x1.Introduction_ to_ Django
@@ -79,19 +80,19 @@ In your Django project directory, use Django’s command-line utility to generat
 Document each operation in separate Markdown files (create.md, retrieve.md, update.md, delete.md) detailing both the Python command used and its output.
 
 **Detailed CRUD Operations and Documentation:**
-. ### Create:
+- ### Create:
 
  . Command: Create a Book instance with the title “1984”, author “George Orwell”, and publication year 1949.
  . Document in: create.md
  . Expected Documentation: Include the Python command and a comment with the expected output noting the successful creation.
 
-. ### Retrieve:
+- ### Retrieve:
 
  . Command: Retrieve and display all attributes of the book you just created.
  . Document in: retrieve.md
  . Expected Documentation: Include the Python command and a comment with the expected output showing the details of the book.
 
-. ### Update:
+- ### Update:
 
  . Command: Update the title of “1984” to “Nineteen Eighty-Four” and save the changes.
  . Document in: update.md
