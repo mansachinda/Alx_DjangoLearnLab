@@ -107,9 +107,9 @@ Document each operation in separate Markdown files (create.md, retrieve.md, upda
 ### Code Implementation: Your models.py file should correctly define the Book model as specified.
 - Ensure that all field types and options are accurately implemented.
 
-Database Operations:
-Perform and document each CRUD operation in the Django shell.
-Save your commands and their outputs in a file named CRUD_operations.md.
+**Database Operations:**
+  - Perform and document each CRUD operation in the Django shell.
+  - Save your commands and their outputs in a file named CRUD_operations.md.
 
 **Repo:**
 
@@ -124,17 +124,19 @@ Gain practical experience with the Django admin interface by configuring the adm
 This task will demonstrate how to use Django’s built-in admin interface to perform data management tasks efficiently.
 
 - **Task Description:**
-Enhance your bookshelf app by integrating the Book model with the Django admin interface.
-Customize the admin display to improve the management and visibility of book data, and document the process to ensure consistent setup and configuration.
+  - Enhance your bookshelf app by integrating the Book model with the Django admin interface.
+  - Customize the admin display to improve the management and visibility of book data, and document the process to ensure consistent setup and configuration.
 
 - **Steps:**
-Register the Book Model with the Django Admin:
+  - Register the Book Model with the Django Admin:
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 Modify bookshelf/admin.py to include the Book model, enabling admin functionalities for it.
-Customize the Admin Interface:
 
-Implement custom configurations to display title, author, and publication_year in the admin list view.
-Configure list filters and search capabilities to enhance the admin’s usability for Book entries.
+- **Customize the Admin Interface:**
+
+  - Implement custom configurations to display title, author, and publication_year in the admin list view.
+  - Configure list filters and search capabilities to enhance the admin’s usability for Book entries.
 
 **Repo:**
 
