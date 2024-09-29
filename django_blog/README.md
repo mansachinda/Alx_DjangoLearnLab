@@ -5,9 +5,11 @@ Implementing User Authentication
 Creating Blog Post Management Features
 Adding Comment Functionality
 Implementing Advanced Features: Tagging and Search
-1. Initial Setup and Project Configuration
-1.1 Project Setup
-Install Django:
+
+# 1. Initial Setup and Project Configuration
+-----------------------------------------------------------------------------------------------------------------------------
+### 1.1 Project Setup
+- **Install Django:**
 
 pip install django
 Create a new Django project:
@@ -23,7 +25,8 @@ INSTALLED_APPS = [
     # ...
     'blog',
 ]
-1.2 Database Configuration
+
+### 1.2 Database Configuration
 By default, Django uses SQLite. If you want to use MySQL, update the DATABASES setting in settings.py. For any other DATABASE, check their official documentation:
 
 DATABASES = {
@@ -36,7 +39,8 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-1.3 Define Blog Models
+
+### 1.3 Define Blog Models
 In blog/models.py:
 
 from django.db import models
@@ -50,7 +54,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-Run migrations:
+
+### Run migrations:
 
 python manage.py makemigrations blog
 python manage.py migrate
@@ -71,12 +76,15 @@ TEMPLATES = [
         # ...
     },
 ]
-1.5 Launch Development Server
+
+### 1.5 Launch Development Server
 python manage.py runserver
 Visit http://127.0.0.1:8000/ to verify the setup.
 
-2. Implementing User Authentication
-2.1 Set Up User Authentication Views
+# 2. Implementing User Authentication
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### 2.1 Set Up User Authentication Views
 Create blog/forms.py:
 
 from django import forms
@@ -112,14 +120,16 @@ def register(request):
 @login_required
 def profile(request):
     return render(request, 'blog/profile.html')
-2.2 Create Templates for Authentication
+
+### 2.2 Create Templates for Authentication
 Create the following templates in blog/templates/blog/:
 
 register.html
 login.html
 logout.html
 profile.html
-2.3 Configure URL Patterns
+
+### 2.3 Configure URL Patterns
 In django_blog/urls.py:
 
 from django.contrib import admin
@@ -135,7 +145,8 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='blog/logout.html'), name='logout'),
     path('', include('blog.urls')),
 ]
-2.4 Implement Profile Management
+
+### 2.4 Implement Profile Management
 Update blog/models.py:
 
 from django.db import models
@@ -153,11 +164,12 @@ Create and run migrations.
 
 Update blog/views.py to handle profile updates.
 
-2.5 Test and Secure the Authentication System
+### 2.5 Test and Secure the Authentication System
 Ensure all forms use CSRF tokens and test thoroughly.
 
-3. Creating Blog Post Management Features
-3.1 Implement CRUD Operations
+# 3. Creating Blog Post Management Features
+------------------------------------------------------------------------------------------------------------------------------------------------------
+### 3.1 Implement CRUD Operations
 Update blog/views.py:
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -211,7 +223,8 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
-3.2 Create and Configure Forms
+
+### 3.2 Create and Configure Forms
 Create blog/forms.py if not already created:
 
 from django import forms
@@ -221,8 +234,9 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content']
-3.3 Set Up Templates for Each Operation
-Create the following templates in blog/templates/blog/:
+
+### 3.3 Set Up Templates for Each Operation
+- **Create the following templates in blog/templates/blog/:**
 
 home.html (for PostListView)
 post_detail.html
@@ -247,9 +261,11 @@ urlpatterns = [
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
 ]
-4. Adding Comment Functionality
-4.1 Define the Comment Model
-Update blog/models.py:
+
+# 4. Adding Comment Functionality
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### 4.1 Define the Comment Model
+- **Update blog/models.py:**
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -264,10 +280,11 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'Comment by {self.author} on {self.post}'
-Run migrations.
 
-4.2 Create Comment Forms
-In blog/forms.py:
+**Run migrations.**
+
+### 4.2 Create Comment Forms
+- **In blog/forms.py:**
 
 from django import forms
 from .models import Comment
@@ -276,8 +293,9 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['content']
-4.3 Implement Comment Views
-Update blog/views.py:
+
+### 4.3 Implement Comment Views
+- **Update blog/views.py:**
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
@@ -285,7 +303,7 @@ from .models import Post, Comment
 from .forms import CommentForm
 from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
 
-# Create a Comment
+### Create a Comment
 class CommentCreateView(CreateView):
     model = Comment
     form_class = CommentForm
@@ -299,7 +317,7 @@ class CommentCreateView(CreateView):
     def get_success_url(self):
         return reverse_lazy('post-detail', kwargs={'pk': self.kwargs['pk']})
 
-# Edit a Comment
+### Edit a Comment
 class CommentUpdateView(UpdateView):
     model = Comment
     form_class = CommentForm
@@ -312,7 +330,7 @@ class CommentUpdateView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('post-detail', kwargs={'pk': self.object.post.pk})
 
-# Delete a Comment
+### Delete a Comment
 class CommentDeleteView(DeleteView):
     model = Comment
     template_name = 'blog/delete_comment.html'
@@ -324,13 +342,14 @@ class CommentDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse_lazy('post-detail', kwargs={'pk': self.object.post.id})
-4.4 Set Up Comment Templates
-Create add_comment_to_post.html in blog/templates/blog/.
 
-Update post_detail.html to include comments and comment form.
+### 4.4 Set Up Comment Templates
+- Create add_comment_to_post.html in blog/templates/blog/.
 
-4.5 Define URL Patterns
-Update blog/urls.py:
+- Update post_detail.html to include comments and comment form.
+
+### 4.5 Define URL Patterns
+- **Update blog/urls.py:**
 
 from django.urls import path
 from . import views
@@ -341,14 +360,16 @@ urlpatterns = [
     path('comment/<int:pk>/update/', CommentUpdateView.as_view(), name='update-comment'),
     path('comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='delete-comment'),
 ]
-5. Implementing Advanced Features: Tagging and Search
-5.1 Integrate Tagging Functionality
-Install django-taggit:
+
+# 5. Implementing Advanced Features: Tagging and Search
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### 5.1 Integrate Tagging Functionality
+- **Install django-taggit:**
 
 pip install django-taggit
 Add 'taggit' to INSTALLED_APPS in settings.py.
 
-Update blog/models.py:
+- **Update blog/models.py:**
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -357,9 +378,10 @@ from taggit.managers import TaggableManager
 class Post(models.Model):
     # ... existing fields ...
     tags = TaggableManager()
-Run migrations.
 
-5.2 Modify Post Creation and Update Forms
+**Run migrations.**
+
+### 5.2 Modify Post Creation and Update Forms
 Update blog/forms.py:
 
 from django import forms
@@ -370,7 +392,8 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ['title', 'content', 'tags'] # Fields for post creation and update
         widgets = {'tags': TagWidget(),} # TagWidget for tags field
-5.3 Develop Search Functionality
+
+### 5.3 Develop Search Functionality
 In blog/views.py:
 
 from django.db.models import Q
@@ -386,12 +409,13 @@ def search_posts(request):
     else:
         posts = Post.objects.all()
     return render(request, 'blog/search_results.html', {'posts': posts, 'query': query})
-5.4 Create Templates for Tagging and Search
-Create search_results.html in blog/templates/blog/.
 
-Update existing templates to display tags and include a search form.
+### 5.4 Create Templates for Tagging and Search
+- **Create search_results.html in blog/templates/blog/.**
 
-5.5 Configure URL Patterns
+- **Update existing templates to display tags and include a search form.**
+
+### 5.5 Configure URL Patterns
 Update blog/urls.py:
 
 from django.urls import path
@@ -402,7 +426,11 @@ urlpatterns = [
     path('search/', views.search_posts, name='search-posts'),
     path('tags/<slug:tag_slug>/', views.PostByTagListView.as_view(), name='posts-by-tag'),  # Posts filtered by tag
 ]
-5.6 Test Tagging and Search Features
-Thoroughly test the new features to ensure they work as expected.
 
-This documentation provides a step-by-step guide to creating a complete Django Blog Application. Remember to test each feature thoroughly as you implement it, and always follow Django's best practices for security and performance.
+### 5.6 Test Tagging and Search Features
+
+**NOTE:**
+
+Thoroughly test the new features to ensure they work as expected.
+This documentation provides a step-by-step guide to creating a complete Django Blog Application.
+Remember to test each feature thoroughly as you implement it, and always follow Django's best practices for security and performance.
