@@ -35,8 +35,8 @@ Install Django:
  
 **Repo:**
 
-GitHub repository: Alx_DjangoLearnLab
-Directory: 0x1.Introduction_ to_ Django
+### GitHub repository: Alx_DjangoLearnLab
+### Directory: 0x1.Introduction_ to_ Django
    
 # 1. Implementing and Interacting with Django Models
 ------------------------------------------------------------------------------------------------------------------------------------------
