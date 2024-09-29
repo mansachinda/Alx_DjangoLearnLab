@@ -38,6 +38,7 @@ Install Django:
  - Directory: 0x1.Introduction_ to_ Django
    
 # 1. Implementing and Interacting with Django Models
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Objective:
 
@@ -117,7 +118,7 @@ Document each operation in separate Markdown files (create.md, retrieve.md, upda
  - Directory: 0x1.Introduction_ to_ Django
    
 # 2. Utilizing the Django Admin Interface
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### Objective:
 
 Gain practical experience with the Django admin interface by configuring the admin to manage the Book model.
